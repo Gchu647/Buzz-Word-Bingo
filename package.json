@@ -1,0 +1,24 @@
+{
+  "name": "buzz-word-bingo",
+  "version": "0.0.1",
+  "description": "Buzz-Word-Bingo",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gchu647/Buzz-Word-Bingo.git"
+  },
+  "author": "George",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gchu647/Buzz-Word-Bingo/issues"
+  },
+  "homepage": "https://github.com/Gchu647/Buzz-Word-Bingo#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
