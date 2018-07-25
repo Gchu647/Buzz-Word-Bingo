@@ -2,7 +2,8 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 8060;
-const buzzArr = [];
+let buzzArr = [];
+let totalScore = 0;
 
 app.use(express.static('./public'));
 app.use( bodyParser.urlencoded( {extended: true})); //encodes the req
@@ -61,6 +62,36 @@ app.delete('/buzzwords', (req, res) => {
     res.json({ "success": true });
   } else {
     res.status(400).json({ "success": false });
+  }
+});
+
+app.post('/reset', (req, res) => { // Reset total score later
+  if(req.body.reset === 'true') {
+    buzzArr = [];
+    res.json({ "success": true });
+  } else {
+    res.status(400).json({ "success": false });
+  }
+});
+
+// Fix post heard
+app.post('/heard', (req, res) => {
+  console.log(req.body);
+  let update = false;
+
+  buzzArr.forEach((element) => {
+    console.log(element);
+    debugger;
+    if(element.buzzWord === req.body.buzzWord) {
+      update = true;
+    }
+  });
+
+  if(update) {
+    totalScore += element.points;
+    res.json({ "totalScore": Number });
+  } else {
+    res.status(400).send(false);
   }
 });
 
